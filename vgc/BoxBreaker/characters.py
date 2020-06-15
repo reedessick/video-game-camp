@@ -107,4 +107,30 @@ NOTE, characters are represented with a BoundingBox but they are drawn as circle
 def intersects(box1, box2):
     """Determine whether two BoundingBox objects intersect! Use the properties of the 
     return either True or False"""
-    return False ### FIXME!
+
+    # check the x-direction
+
+    A = box1.left < box2.left
+    B = box1.right > box2.left
+    C = box1.left < box2.right
+    D = box1.right > box2.right
+
+    AandB = A and B
+    CandD = C and D
+
+    overlap_in_x = AandB or CandD
+
+    # check the y-direction
+
+    A = box1.top > box2.top
+    B = box1.bottom < box2.top
+    C = box1.top > box2.bottom
+    D = box1.bottom < box2.bottom
+
+    AandB = A and B
+    CandD = C and D
+
+    overlap_in_y = AandB or CandD
+
+    # check whether they overlap in either the x or the y directions
+    return overlap_in_x and overlap_in_y

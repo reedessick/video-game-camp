@@ -7,7 +7,7 @@ __author__ = "Reed Essick (reed.essick@gmail.com)"
 import random
 import pygame
 
-from pygame.locals import (K_UP, K_DOWN, K_LEFT, K_RIGHT, K_ESCAPE, KEYDOWN, KEYUP, QUIT)
+from pygame.locals import (K_UP, K_DOWN, K_LEFT, K_RIGHT, K_SPACE, KEYDOWN, KEYUP, K_ESCAPE, QUIT)
 
 ### non-standard libraries
 from . import characters
@@ -23,40 +23,53 @@ def random_color():
 
 #-------------------------------------------------
 
-def main(fps=30, **kwargs):
+def main(fps=30, max_opponents=1000, **kwargs):
     """Launch the game and enter the main loop!"""
-
-    LEVELS = [
-        ('Level 1', game, 2),
-        ('Level 2', game, 5),
-        ('Level 3', game, 10),
-    ]
 
     print('Welcome to BoxBreaker!')
     pygame.init()
     clock = pygame.time.Clock()
     clock.tick(fps)
 
-    for level_name, level, number_of_opponents in LEVELS:
-        print('Entering '+level_name)
-        if not level(number_of_opponents=number_of_opponents, **kwargs): ### we quit out of the level, so we should exit the game
+    total_score = 0
+    number_of_opponents = 1
+    opponent_respawn_time = 5000
+    level = 1
+    speed = 1
+    while number_of_opponents < max_opponents:
+        print('Entering Level %d'%level)
+
+        score, running = game(player_speed=speed, number_of_opponents=number_of_opponents, opponent_respawn_time=opponent_respawn_time, **kwargs)
+        total_score += score
+
+        if running:
+            level += 1
+#            speed = max(5, speed+1)
+            number_of_opponents *= 2
+            if (level % 3) == 0:
+                opponent_respawn_time = max(3*fps, opponent_respawn_time/2)
+
+        else:
             break
 
+    print('---> total score: %d <---'%total_score)
     print('Exiting BoxBreaker!')
     pygame.quit()
 
 #------------------------
 
-def loop(level, player, others, player_speed=1):
+def loop(level, player, others, player_speed=1, respawn_time=1000):
     """execute the main loop that drives the game"""
     screen = pygame.display.set_mode([level.width, level.height]) ### set the screen to match the level
     screen.fill(level.color) ### fill in the background color for the level
 
     pressed = dict()
     running = True
-    while running:
+    removed = []
+
+    respawn = 1
+    while running and len(others):
         for event in pygame.event.get():
-            print(event)
             if (event.type == QUIT) or (event.type == KEYDOWN and event.key == K_ESCAPE): ### clicked the close button or pressed escape
                 running = False
 
@@ -79,15 +92,30 @@ def loop(level, player, others, player_speed=1):
             elif key == K_RIGHT:
                 player.move_right(player_speed, max_x=level.right)
 
-        ### make the background the level's color
-        screen.fill(level.color)
+        ### add back opponents if the timed out
+        if (respawn % respawn_time) == 0:
+            if removed:
+                others.append(removed.pop(0))
+        respawn += 1
 
         ### draw the others on the screen
-        for other in others:
+        for i in range(len(others)):
+            other = others.pop(0)
             if characters.intersects(player, other):
                 other.invert_color = True
+                if pressed.get(K_SPACE, False):
+                    removed.append(other)
+                else:
+                    others.append(other)
             else:
                 other.invert_color = False
+                others.append(other)
+
+        ### make the background the level's color
+        screen.fill(level.color)
+        
+        ### now draw the others to the screen
+        for other in others:
             other.draw(screen, level)
 
         ### draw the player on the screen. This makes sure that the player is always on top of the others
@@ -96,15 +124,14 @@ def loop(level, player, others, player_speed=1):
         ### update the screen
         pygame.display.flip()
 
-    else: ### game ended without quitting
-        return True
-
-    return False ### game ended by quitting
+    return len(removed) - respawn//respawn_time, running ### if we are still running (have not quit), we need to convey that
 
 #-------------------------------------------------
 
 def game(
+        player_speed=1,
         number_of_opponents=1,
+        opponent_respawn_time=1000,
         gamewidth=levels.DEFAULT_GAMEWIDTH,
         gameheight=levels.DEFAULT_GAMEHEIGHT,
         characterradius=characters.DEFAULT_WIDTH,
@@ -137,4 +164,4 @@ def game(
         others.append(opponent)
 
     ### enter the game loop
-    loop(level, player, others)
+    return loop(level, player, others, respawn_time=opponent_respawn_time, player_speed=player_speed)
