@@ -32,7 +32,7 @@ During the 5 day camp, you will design a video game and program a computer to le
 This starts from the very basics of how to make your characters interact within the game on Day 1, to more advanced ideas like how to keep score, how to make your game unpredictable and exciting, and how to add new features later by the end of Day 4.
 Day 5 will be a tournament with your friends and family in which you can show off your new game!
 
-### [Day 1](day1/README.md)
+### [Day 1](day1/)
 
 *Design*: Brainstorm the basic aspects of your game!
 
@@ -40,7 +40,7 @@ Day 5 will be a tournament with your friends and family in which you can show of
 
 *Test*: Begin building your own game! Brainstorm more features while exploring bounding box behavior!
 
-### Day 2
+### [Day 2](day2/)
 
 *Design*: Create images for your characters!
 
@@ -48,7 +48,7 @@ Day 5 will be a tournament with your friends and family in which you can show of
 
 *Test*: Make your characters interact within your game!
 
-### Day 3
+### [Day 3](day3/)
 
 *Design*: Create custom levels!
 
@@ -56,7 +56,7 @@ Day 5 will be a tournament with your friends and family in which you can show of
 
 *Test*: ...
 
-### Day 4
+### [Day 4](day4/)
 
 *Design*: Make a user-guide that explains how to play your game!
 
@@ -64,7 +64,7 @@ Day 5 will be a tournament with your friends and family in which you can show of
 
 *Test*: ...
 
-### Day 5
+### [Day 5](day5/)
 
 *TOURNAMENT*: Get your friends and family to try your game!
 
