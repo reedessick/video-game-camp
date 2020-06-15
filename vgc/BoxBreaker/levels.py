@@ -4,8 +4,8 @@ __author__ = "Reed Essick (reed.essick@gmail.com)"
 
 #-------------------------------------------------
 
-DEFAULT_GAMEWIDTH = 2048
-DEFAULT_GAMEHEIGHT = 1024
+DEFAULT_GAMEWIDTH = 800
+DEFAULT_GAMEHEIGHT = 800
 
 DEFAULT_COLOR = (255, 255, 255) ### white
 

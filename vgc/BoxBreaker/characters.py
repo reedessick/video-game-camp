@@ -8,8 +8,8 @@ import pygame
 
 #-------------------------------------------------
 
-DEFAULT_WIDTH = 128
-DEFAULT_HEIGHT = 128
+DEFAULT_WIDTH = 32
+DEFAULT_HEIGHT = 32
 
 DEFAULT_COLOR = (0, 0, 255)
 
