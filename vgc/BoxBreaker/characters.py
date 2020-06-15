@@ -83,6 +83,7 @@ NOTE, characters are represented with a BoundingBox but they are drawn as circle
     def __init__(self, name, x, y, radius=DEFAULT_WIDTH, color=DEFAULT_COLOR):
         self._name = name
         self._radius = radius
+        self.invert_color = False
         BoundingBox.__init__(self, x, y, width=2*radius, height=2*radius, color=color)
 
     @property
@@ -94,7 +95,12 @@ NOTE, characters are represented with a BoundingBox but they are drawn as circle
         return self._radius
 
     def draw(self, screen, level):
-        pygame.draw.circle(screen, self.color, (self.x_center - level.left, self.y_center - level.bottom), self.radius)
+        r, g, b = self.color
+        if self.invert_color:
+            r = 255 - r
+            g = 255 - g
+            b = 255 - b
+        pygame.draw.circle(screen, (r, g, b), (self.x_center - level.left, self.y_center - level.bottom), self.radius)
 
 #-------------------------------------------------
 

@@ -76,6 +76,10 @@ def loop(level, player, others, player_speed=5):
 
         ### draw the others on the screen
         for other in others:
+            if characters.intersects(player, other):
+                other.invert_color = True
+            else:
+                other.invert_color = False
             other.draw(screen, level)
 
         ### draw the player on the screen. This makes sure that the player is always on top of the others
