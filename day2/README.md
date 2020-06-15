@@ -1,5 +1,7 @@
 # video-game-camp Day 2
 
+[Overview](../)
+
 *Design*
 
 Find images online (or draw your own!) for the different characters and levels you described on Day 1.

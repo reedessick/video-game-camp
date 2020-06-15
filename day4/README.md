@@ -1,5 +1,7 @@
 # video-game-camp Day 5
 
+[Overview](../)
+
 *Design*
 
 Make a user-guide that explains how to play your game!
