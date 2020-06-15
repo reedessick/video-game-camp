@@ -52,9 +52,9 @@ Day 5 will be a tournament with your friends and family in which you can show of
 
 *Design*: Create custom levels!
 
-*Code*: ...
+*Code*: Allow your characters to score points and advance to higher levels!
 
-*Test*: ...
+*Test*: See if you can get your characters to progress through all 3 levels!
 
 ### [Day 4](day4/)
 
@@ -84,6 +84,20 @@ and then you can launch your arcade via
 ```
 python -m vgc
 ```
+
+## Architecture
+
+The video-game-camp (`vgc`) library is structured as a collection of Python modules.
+The basic `vgc` module registers which games are available and provides a simple menu for users to navigate to the games they want to play.
+In order for new games to become available, users will have to import them within `~/vgc/__init__.py` (see the example for how to import `BoxBreaker`).
+
+Users should define their new games as submodules within `~/vgc~`; remember to include `__init__.py` and `__main__.py` modules.
+Importantly, users should define a `utils.py` within their game, and there must be a `main()` function defined within `utils.py`.
+This `utils.main()` should be imported an called within `__main__.py` so that users can directly launch this game from the command line without navigating the `vgc` menu.
+However, we also need the `main()` function to be defined within `utils` so that the menu within `vgc` can launch games in a standard way.
+
+Beyond that, developers can add whatever material they like within their game's subdirectory, including defining other modules to support gameplay.
+`BoxBreaker` provides a very basic example of how this can be done.
 
 ## Contact
 
