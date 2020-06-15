@@ -4,6 +4,10 @@ A repository in which we store video games produced and camp materials from the 
 During this camp, you will learn the basics of video game design, including how to come up with creative ideas for new games, how to design computer programs to represent those ideas, and how to make the computer run your game.
 This should be accessible to anyone, even those with no prior programing experience.
 
+This repository is meant to contain the basic infrastructure that can be used to make many different games.
+You can either copy this repository many times to create more than one game, or you can create multiple games in this repository.
+We will show you how to organize your code to make this easy and so that you can continue to develop your games as much or as little as you like at any point in the future (even after camp is over!).
+
 ## Schedule
 
 During the 5 day camp, you will design a video game and program a computer to let you play it.
