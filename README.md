@@ -1,8 +1,14 @@
 # video-game-camp
 
 A repository in which we store video games produced and camp materials from the summer of 2020.
+During this camp, you will learn the basics of video game design, including how to come up with creative ideas for new games, how to design computer programs to represent those ideas, and how to make the computer run your game.
+This should be accessible to anyone, even those with no prior programing experience.
 
 ## Schedule
+
+During the 5 day camp, you will design a video game and program a computer to let you play it.
+This starts from the very basics of how to make your characters interact within the game on Day 1, to more advanced ideas like how to keep score, how to make your game unpredictable and exciting, and how to add new features later by the end of Day 4.
+Day 5 will be a tournament with your friends and family in which you can show off your new game!
 
 ### Day 1
 
