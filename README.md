@@ -80,7 +80,8 @@ Once that is installed, simply install this library from source via
 ```
 python setup.py install --prefix /path/to/install
 ```
-and then you can launch your arcade via
+Make sure you remember to update your environment to point to your new installation within your `$PYTHONPATH`.
+You can then launch your arcade via
 ```
 python -m vgc
 ```
