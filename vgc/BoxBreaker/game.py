@@ -26,14 +26,20 @@ def random_color():
 def main(fps=30, **kwargs):
     """Launch the game and enter the main loop!"""
 
+    LEVELS = [
+        ('Level 1', game, 2),
+        ('Level 2', game, 5),
+        ('Level 3', game, 10),
+    ]
+
     print('Welcome to BoxBreaker!')
     pygame.init()
     clock = pygame.time.Clock()
     clock.tick(fps)
 
-    for level_name, level in [('Level 1', level1)]:
+    for level_name, level, number_of_opponents in LEVELS:
         print('Entering '+level_name)
-        if not level(**kwargs): ### we quit out of the level, so we should exit the game
+        if not level(number_of_opponents=number_of_opponents, **kwargs): ### we quit out of the level, so we should exit the game
             break
 
     print('Exiting BoxBreaker!')
@@ -97,7 +103,8 @@ def loop(level, player, others, player_speed=1):
 
 #-------------------------------------------------
 
-def level1(
+def game(
+        number_of_opponents=1,
         gamewidth=levels.DEFAULT_GAMEWIDTH,
         gameheight=levels.DEFAULT_GAMEHEIGHT,
         characterradius=characters.DEFAULT_WIDTH,
@@ -119,14 +126,15 @@ def level1(
     ### create other characters
     others = []
 
-    opponent = characters.Character(
-        'Other',
-        random_character_placement(gamewidth, 2*characterradius),
-        random_character_placement(gameheight, 2*characterradius),
-        radius=characterradius,
-        color=random_color(),
-    )
-    others.append(opponent)
+    for i in range(number_of_opponents):
+        opponent = characters.Character(
+            'Opponent %d'%(i+1),
+            random_character_placement(gamewidth, 2*characterradius),
+            random_character_placement(gameheight, 2*characterradius),
+            radius=characterradius,
+            color=random_color(),
+        )
+        others.append(opponent)
 
     ### enter the game loop
     loop(level, player, others)
