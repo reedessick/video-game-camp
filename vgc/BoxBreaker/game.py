@@ -23,11 +23,13 @@ def random_color():
 
 #-------------------------------------------------
 
-def main(**kwargs):
+def main(fps=30, **kwargs):
     """Launch the game and enter the main loop!"""
 
     print('Welcome to BoxBreaker!')
     pygame.init()
+    clock = pygame.time.Clock()
+    clock.tick(fps)
 
     for level_name, level in [('Level 1', level1)]:
         print('Entering '+level_name)
@@ -39,7 +41,7 @@ def main(**kwargs):
 
 #------------------------
 
-def loop(level, player, others, player_speed=5):
+def loop(level, player, others, player_speed=1):
     """execute the main loop that drives the game"""
     screen = pygame.display.set_mode([level.width, level.height]) ### set the screen to match the level
     screen.fill(level.color) ### fill in the background color for the level
