@@ -4,4 +4,4 @@ __author__ = "Reed Essick (reed.essick@gmail.com)"
 
 #-------------------------------------------------
 
-from . import utils
+from . import game

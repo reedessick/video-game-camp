@@ -93,9 +93,10 @@ The basic `vgc` module registers which games are available and provides a simple
 In order for new games to become available, users will have to import them within `~/vgc/__init__.py` (see the example for how to import `BoxBreaker`).
 
 Users should define their new games as submodules within `~/vgc~`; remember to include `__init__.py` and `__main__.py` modules.
-Importantly, users should define a `utils.py` within their game, and there must be a `main()` function defined within `utils.py`.
-This `utils.main()` should be imported an called within `__main__.py` so that users can directly launch this game from the command line without navigating the `vgc` menu.
-However, we also need the `main()` function to be defined within `utils` so that the menu within `vgc` can launch games in a standard way.
+Importantly, users should define a `game.py` within their game, and there must be a `main()` function defined within `game.py`.
+This `game.main()` should be imported an called within `__main__.py` so that users can directly launch this game from the command line without navigating the `vgc` menu.
+However, we also need the `main()` function to be defined within `game` so that the menu within `vgc` can launch games in a standard way.
+This additionally requires `game` to be imported within `__init__.py`.
 
 Beyond that, developers can add whatever material they like within their game's subdirectory, including defining other modules to support gameplay.
 `BoxBreaker` provides a very basic example of how this can be done.

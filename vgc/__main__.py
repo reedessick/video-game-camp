@@ -55,7 +55,7 @@ Note, users should also be able to launch individual games directly by calling t
 
     name, game = select_game(find_available_games(vgc))
     print('---- Launching: %s -----'%name)
-    game.utils.main()
+    game.game.main()
     sys.exit(0)
 
 #-------------------------------------------------
