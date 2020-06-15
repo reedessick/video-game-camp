@@ -1,6 +1,6 @@
 # video-game-camp Day 5
 
-[Overview](../)
+[Camp Overview](../README.md)
 
 *TOURNAMENT*
 

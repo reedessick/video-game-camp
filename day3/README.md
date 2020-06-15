@@ -1,6 +1,6 @@
 # video-game-camp Day 3
 
-[Overview](../)
+[Camp Overview](../README.md)
 
 *Design*
 
