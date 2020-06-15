@@ -1,6 +1,7 @@
 # video-game-camp
 
-A repository in which we store video games produced and camp materials from the summer of 2020.
+Welcome to Video-Game Summer Camp (2020)!
+
 During this camp, you will learn the basics of video game design, including how to come up with creative ideas for new games, how to design computer programs to represent those ideas, and how to make the computer run your game.
 This should be accessible to anyone, even those with no prior programing experience.
 
@@ -42,6 +43,7 @@ Write down the following in your notebook
 *Design*
 
 Find images online (or draw your own!) for the different characters and levels you described on Day 1.
+Make sure to write down where you found your images in your notebook!
 
 *Code*
 
@@ -60,6 +62,7 @@ Find images online (or draw your own!) for the different characters and levels y
 *Design*
 
 Find images online (or draw your own!) for the levels. These could be backgrounds or specific items that you have to interact with in each level.
+Make sure to write down where you found your images in your notebook!
 
 *Code*
 
@@ -70,6 +73,9 @@ Find images online (or draw your own!) for the levels. These could be background
 *Design*
 
 Make a user-guide that explains how to play your game!
+Use the descriptions you wrote down in your notebook to make a colorful user-guide.
+Be creative!
+Make sure your user-guide looks exciting so that everyone will want to play your game!
 
 *Code*
 
@@ -91,3 +97,9 @@ This library relies upon pygame. On linux systems, this is simple to install wit
 sudo apt-get install python-pygame
 ```
 This will discover and install the version of pygame consistent with your default Python interpreter. Mine happens to be Python2.7; yours is likely to be Python3.7 or higher.
+
+## Contact
+
+You can contact Reed with questions at `reed.essick@gmail.com`.
+Please feel free to build upon this simple camp with your friends and family!
+
