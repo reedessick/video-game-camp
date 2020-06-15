@@ -34,78 +34,39 @@ Day 5 will be a tournament with your friends and family in which you can show of
 
 ### [Day 1](day1/README.md)
 
-*Design*
+*Design*: Brainstorm the basic aspects of your game!
 
-Write down the following in your notebook
-  * Your game's title
-  * What players will do within the game
-    * What is the goal? How do you get points?
-    * Is there a story to go along with your game?
-    * What makes the game challenging?
-  * At least 3 characters (including what they look like and any special powers they have)
-  * At least 3 levels (what you have to do in each)
+*Code*: Learn how to play a `vgc` game and the basics of bounding boxes!
 
-*Code*
-  * Learn how to start the game
-  * Learn how to edit the game's source code
-  * Write function to determine whether bounding boxes overlap
-
-*Test*
-
-  * Play the game with and without the bounding-box overlap function defined.
-  * Can you think how you would change the game to make actions occur when bounding boxes overlap?
+*Test*: Begin building your own game! Brainstorm more features while exploring bounding box behavior!
 
 ### Day 2
 
-*Design*
+*Design*: Create images for your characters!
 
-Find images online (or draw your own!) for the different characters and levels you described on Day 1.
-Make sure to write down where you found your images in your notebook!
+*Code*: Create your characters!
 
-*Code*
-
-  * Create your characters!
-    * Define objects to represent your characters and their special powers. These should extend the BoundingBox class.
-    * See if you can make the characters look like you designed them by including the pictures you drew!
-
-*Test*
-
-  * Building on the basic game from Day 1, add multiple characters to your game and see if you can make them do things when their bounding-boxes overlap.
-  * Can you change which character you control?
-  * Can you make multiple characters move at the same time?
+*Test*: Make your characters interact within your game!
 
 ### Day 3
 
-*Design*
+*Design*: Create custom levels!
 
-Find images online (or draw your own!) for the levels. These could be backgrounds or specific items that you have to interact with in each level.
-Make sure to write down where you found your images in your notebook!
+*Code*: ...
 
-*Code*
-
-*Test*
+*Test*: ...
 
 ### Day 4
 
-*Design*
+*Design*: Make a user-guide that explains how to play your game!
 
-Make a user-guide that explains how to play your game!
-Use the descriptions you wrote down in your notebook to make a colorful user-guide.
-Be creative!
-Make sure your user-guide looks exciting so that everyone will want to play your game!
+*Code*: ...
 
-*Code*
-
-*Test*
+*Test*: ...
 
 ### Day 5
 
-*TOURNAMENT*
-
-Get your friends and family to try your game!
-    * Show them your user-guide
-    * Demonstrate how to play the game and what you have learned
-    * See who can get the highest score
+*TOURNAMENT*: Get your friends and family to try your game!
 
 ## Installation
 
