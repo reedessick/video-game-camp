@@ -8,3 +8,4 @@ __author__ = 'Reed Essick (reed.essick@gmail.com)'
 #-------------------------------------------------
 
 from . import BoxBreaker
+from . import DinosaursVsAirplanes
