@@ -154,7 +154,7 @@ def game(
     others = []
 
     for i in range(number_of_opponents):
-        opponent = characters.Character(
+        opponent = characters.Opponent(
             'Opponent %d'%(i+1),
             random_character_placement(gamewidth, 2*characterradius),
             random_character_placement(gameheight, 2*characterradius),

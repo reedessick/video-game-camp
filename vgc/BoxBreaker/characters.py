@@ -91,46 +91,44 @@ NOTE, characters are represented with a BoundingBox but they are drawn as circle
         return self._name
 
     @property
-    def radius(self):
-        return self._radius
-
-    def draw(self, screen, level):
-        r, g, b = self.color
+    def color(self):
+        r, g, b = self._color
         if self.invert_color:
             r = 255 - r
             g = 255 - g
             b = 255 - b
-        pygame.draw.circle(screen, (r, g, b), (self.x_center - level.left, self.y_center - level.bottom), self.radius)
+        return (r, g, b)
+
+    @property
+    def radius(self):
+        return self._radius
+
+    def draw(self, screen, level):
+        pygame.draw.circle(screen, self.color, (self.x_center - level.left, self.y_center - level.bottom), self.radius, 2)
+
+class Opponent(Character):
+    """an opponent rather than a character"""
+
+    def draw(self, screen, level):
+        pygame.draw.rect(screen, self.color, (self.left - level.left, self.bottom - level.bottom, self.width, self.height))
 
 #-------------------------------------------------
 
-def intersects(box1, box2):
+def D(X1, x, X2):
+    """Determine whether x is between X1 and X2"""
+    A = X1 <= x
+    B = x <= X2
+    return A and B
+
+def overlap(x1, x2, y1, y2):
+    AandB = D(x1, y1, x2)
+    CandD = D(x1, y2, x2)
+    return (AandB or CandD)
+
+def intersects(B1, B2):
     """Determine whether two BoundingBox objects intersect! Use the properties of the 
     return either True or False"""
+    overlap_in_x = overlap(B1.left, B1.right, B2.left, B2.right)
+    overlap_in_y = overlap(B1.bottom, B1.top, B2.bottom, B2.top)
 
-    # check the x-direction
-
-    A = box1.left < box2.left
-    B = box1.right > box2.left
-    C = box1.left < box2.right
-    D = box1.right > box2.right
-
-    AandB = A and B
-    CandD = C and D
-
-    overlap_in_x = AandB or CandD
-
-    # check the y-direction
-
-    A = box1.top > box2.top
-    B = box1.bottom < box2.top
-    C = box1.top > box2.bottom
-    D = box1.bottom < box2.bottom
-
-    AandB = A and B
-    CandD = C and D
-
-    overlap_in_y = AandB or CandD
-
-    # check whether they overlap in either the x or the y directions
-    return overlap_in_x and overlap_in_y
+    return (overlap_in_x and overlap_in_y)
