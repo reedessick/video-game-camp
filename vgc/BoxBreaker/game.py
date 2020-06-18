@@ -4,22 +4,16 @@ __author__ = "Reed Essick (reed.essick@gmail.com)"
 
 #-------------------------------------------------
 
-import random
 import pygame
-
 from pygame.locals import (K_UP, K_DOWN, K_LEFT, K_RIGHT, K_SPACE, KEYDOWN, KEYUP, K_ESCAPE, QUIT)
 
 ### non-standard libraries
 from . import characters
 from . import levels
 
-#-------------------------------------------------
-
-def random_character_placement(gamesize, charactersize):
-    return (random.random() - 0.5)*(gamesize - charactersize)
-
-def random_color():
-    return (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+from vgc import utils
+random_character_placement = utils.random_character_placement
+random_color = utils.random_color
 
 #-------------------------------------------------
 
@@ -98,7 +92,7 @@ def loop(level, player, others, player_speed=1, respawn_time=1000):
                 others.append(removed.pop(0))
         respawn += 1
 
-        ### draw the others on the screen
+        ### logic to interact with boxes
         for i in range(len(others)):
             other = others.pop(0)
             if characters.intersects(player, other):
