@@ -13,9 +13,6 @@ import vgc
 
 #-------------------------------------------------
 
-def find_available_games(mod):
-    return dict(inspect.getmembers(mod, inspect.ismodule))
-
 def print_available_games(games):
     for game in games.keys():
         print(' -- '+game)
@@ -53,7 +50,7 @@ def main():
     """the basic function that will be run when this module is called as an executable. This should discover the available games and prompt the user to select which game they would like to play. It should then launch that game.
 Note, users should also be able to launch individual games directly by calling the associated modules that live within vgc."""
 
-    name, game = select_game(find_available_games(vgc))
+    name, game = select_game(vgc.KNOWN_GAMES)
     print('---- Launching: %s -----'%name)
     game.game.main()
     sys.exit(0)

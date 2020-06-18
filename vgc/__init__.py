@@ -9,3 +9,8 @@ __author__ = 'Reed Essick (reed.essick@gmail.com)'
 
 from . import BoxBreaker
 from . import DinosaursVsAirplanes
+
+KNOWN_GAMES = {
+    'Box Breaker' : BoxBreaker,
+    'Dinosaurs vs Airplanes' : DinosaursVsAirplanes,
+}

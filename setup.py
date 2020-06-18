@@ -17,7 +17,7 @@ setup(
     author_email = 'reed.essick@gmail.com',
     description = __description__,
     license = 'MIT',
-    scripts = [],
+    scripts = glob.glob('bin/*'),
     packages = find_packages(),
     data_files = [],
     requires = [],
